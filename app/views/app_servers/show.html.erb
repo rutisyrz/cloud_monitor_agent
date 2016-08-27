@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @app_server.name %>
+</p>
+
+<p>
+  <strong>Instance:</strong>
+  <%= @app_server.instance_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @app_server.status %>
+</p>
+
+<p>
+  <strong>File system:</strong>
+  <%= @app_server.file_system %>
+</p>
+
+<p>
+  <strong>Volume mount path:</strong>
+  <%= @app_server.volume_mount_path %>
+</p>
+
+<%= link_to 'Edit', edit_app_server_path(@app_server) %> |
+<%= link_to 'Back', app_servers_path %>

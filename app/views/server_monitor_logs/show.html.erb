@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>App server:</strong>
+  <%= @server_monitor_log.app_server_id %>
+</p>
+
+<p>
+  <strong>Cpu usage:</strong>
+  <%= @server_monitor_log.cpu_usage %>
+</p>
+
+<p>
+  <strong>Disk usage percent:</strong>
+  <%= @server_monitor_log.disk_usage_percent %>
+</p>
+
+<p>
+  <strong>Disk usage gb:</strong>
+  <%= @server_monitor_log.disk_usage_gb %>
+</p>
+
+<p>
+  <strong>Process running:</strong>
+  <%= @server_monitor_log.process_running %>
+</p>
+
+<%= link_to 'Edit', edit_server_monitor_log_path(@server_monitor_log) %> |
+<%= link_to 'Back', server_monitor_logs_path %>

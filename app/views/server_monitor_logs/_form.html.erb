@@ -1,0 +1,37 @@
+<%= form_for(@server_monitor_log) do |f| %>
+  <% if @server_monitor_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@server_monitor_log.errors.count, "error") %> prohibited this server_monitor_log from being saved:</h2>
+
+      <ul>
+      <% @server_monitor_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :app_server_id %><br>
+    <%= f.number_field :app_server_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cpu_usage %><br>
+    <%= f.number_field :cpu_usage %>
+  </div>
+  <div class="field">
+    <%= f.label :disk_usage_percent %><br>
+    <%= f.number_field :disk_usage_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :disk_usage_gb %><br>
+    <%= f.number_field :disk_usage_gb %>
+  </div>
+  <div class="field">
+    <%= f.label :process_running %><br>
+    <%= f.number_field :process_running %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

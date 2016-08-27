@@ -1,0 +1,37 @@
+<%= form_for(@app_server) do |f| %>
+  <% if @app_server.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@app_server.errors.count, "error") %> prohibited this app_server from being saved:</h2>
+
+      <ul>
+      <% @app_server.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :instance_id %><br>
+    <%= f.text_field :instance_id %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :file_system %><br>
+    <%= f.text_field :file_system %>
+  </div>
+  <div class="field">
+    <%= f.label :volume_mount_path %><br>
+    <%= f.text_field :volume_mount_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

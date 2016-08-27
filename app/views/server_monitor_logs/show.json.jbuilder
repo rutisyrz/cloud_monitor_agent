@@ -1,0 +1,1 @@
+json.partial! "server_monitor_logs/server_monitor_log", server_monitor_log: @server_monitor_log

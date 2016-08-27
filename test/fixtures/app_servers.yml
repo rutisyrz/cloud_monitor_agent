@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  instance_id: MyString
+  status: MyString
+  file_system: MyString
+  volume_mount_path: MyString
+
+two:
+  name: MyString
+  instance_id: MyString
+  status: MyString
+  file_system: MyString
+  volume_mount_path: MyString

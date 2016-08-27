@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CloudMonitorAgent</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= link_to 'App Servers Dashboard', app_servers_path, :class => 'btn' %> &nbsp; | &nbsp; 
+<%= link_to 'Server Monitoring Log Dashboard', server_monitor_logs_path, :class => 'btn' %>
+
+<hr />
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<div class="page-header">
+  <h1>Server Monitoring Log</h1>
+</div>
+
+<p class="notice_msg"> 
+<i> NOTE:: </i> <u> Due to time constrain - I've hard coded REPORT_RECORD_LIMIT=5 and REPORT_PERIOD=3 hours, instead of providing interface on dashboard </u>
+</p>
+
+<small><p> 
+  <b> Select Report Option - </b>
+  <%= select :server_monitor_log, :report, report_options,  :selected => params[:report], include_blank: true %>
+</p></small>
+
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>App Server</th>
+      <th>CPU Usage</th>
+      <th>Disk Usage Percentage</th>
+      <th>Disk Usage GB</th>
+      <th>Processes Running</th>
+      <th>Created At</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <% @server_monitor_logs.each do |server_monitor_log| %>
+      <tr>
+        <td><%= server_monitor_log.app_server.instance_id %></td>
+        <td><%= server_monitor_log.cpu_usage.round(2) %> %</td>
+        <td><%= server_monitor_log.disk_usage_percent.round(2) %> %</td>
+        <td><%= server_monitor_log.disk_usage_gb.round(2) %> GB</td>
+        <td><%= server_monitor_log.process_running %></td>
+        <td><%= Time.parse(server_monitor_log.created_at.to_s).strftime("%F %H:%M") %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $('#server_monitor_log_report').change(generate_report);
+
+  function generate_report(){
+    window.location = (this.value == "") ? window.location.pathname : window.location.pathname + "?report=" + this.value;  
+  }
+</script>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  app_server_id: 1
+  cpu_usage: 1
+  disk_usage_percent: 1
+  disk_usage_gb: 1
+  process_running: 1
+
+two:
+  app_server_id: 1
+  cpu_usage: 1
+  disk_usage_percent: 1
+  disk_usage_gb: 1
+  process_running: 1

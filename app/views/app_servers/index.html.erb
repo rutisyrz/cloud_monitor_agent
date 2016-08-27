@@ -1,0 +1,51 @@
+<div class="page-header">
+  <div class="float-left">
+    <h1> EC2 Instances </h1>  
+  </div>
+  <div class="float-right action-box">
+    <%= link_to 'Add New App server', new_app_server_path, :class => 'btn'  %> 
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<p class="notice_msg"> 
+<i> NOTE:: (Assumption) </i> <u> Only monitor disk mounted as Root device. </u>
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Instance Id</th>      
+      <th>File System</th>
+      <th>Volume Mount Path</th>      
+      <th>Status</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @app_servers.each do |app_server| %>
+      <tr>
+        <td><%= app_server.name %></td>
+        <td><%= app_server.instance_id %></td>
+        <td><%= app_server.file_system %></td>
+        <td><%= app_server.volume_mount_path %></td>
+        <td><%= app_server.status %></td>
+        <td><%= Time.parse(app_server.created_at.to_s).strftime("%F %H:%M") %></td> 
+        <td> &nbsp; | &nbsp;
+          <%= link_to 'Show', app_server %> &nbsp; | &nbsp;
+          <%= link_to 'Edit', edit_app_server_path(app_server) %> &nbsp; | &nbsp;
+          <% if app_server.stopped? %>
+            <%= link_to 'Start', start_app_server_path(app_server), data: { confirm: 'Are you sure you want to START the server?' } %> &nbsp; | &nbsp;
+          <% end %>
+          <% if app_server.started? %>
+            <%= link_to 'Stop', stop_app_server_path(app_server), data: { confirm: 'Are you sure you want to START the server?' } %> &nbsp; | &nbsp;
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

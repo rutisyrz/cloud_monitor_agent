@@ -1,0 +1,2 @@
+json.extract! server_monitor_log, :id, :app_server_id, :cpu_usage, :disk_usage_percent, :disk_usage_gb, :process_running, :created_at, :updated_at
+json.url server_monitor_log_url(server_monitor_log, format: :json)

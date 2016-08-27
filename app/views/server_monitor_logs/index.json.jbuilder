@@ -1,0 +1,1 @@
+json.array! @server_monitor_logs, partial: 'server_monitor_logs/server_monitor_log', as: :server_monitor_log
