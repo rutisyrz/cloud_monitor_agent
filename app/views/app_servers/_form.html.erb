@@ -21,7 +21,8 @@
   </div>
   <div class="field">
     <%= f.label :status %><br>
-    <%= f.text_field :status %>
+    <%#= f.text_field :status %>
+    <%= f.select :status, statuses %>
   </div>
   <div class="field">
     <%= f.label :file_system %><br>

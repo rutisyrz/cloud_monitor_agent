@@ -10,12 +10,17 @@ class AppServer
 
   validates :instance_id, :status, :file_system, :volume_mount_path, presence: true
   validates_uniqueness_of :instance_id
+  validate :instance_exists
   
   has_many :server_monitor_logs
 
   index( {instance_id: 1}, {:background => true} )
 
   scope :running_instances, -> { where status: "started" }
+
+
+
+  STATUSES = ["started", "stopped"]
   
   def started?
     status == "started"
@@ -23,6 +28,17 @@ class AppServer
 
   def stopped?
     status == "stopped"
+  end
+
+  private 
+
+  def instance_exists
+    begin
+      instance = Aws::EC2::Instance.new(id: self.instance_id)
+      instance.exists?
+    rescue Aws::EC2::Errors::InvalidInstanceIDMalformed => e
+      errors.add(:instance_id, e.message)
+    end
   end
 
 end
