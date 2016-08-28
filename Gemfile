@@ -30,7 +30,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'figaro'
 gem 'rest-client', '~> 1.8.0'
-
+gem 'whenever'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
