@@ -53,7 +53,7 @@
 > Step - 5 : Register Agent App on Cloud Monito Server as a Client app
 - Link - CLOUD_MONITOR_SERVER_ACCESS_TOKEN/agents/new
 - On successful registration, it gives message show as below 
-	"Congratulations! Your application has been successfully registered. 
+	- "Congratulations! Your application has been successfully registered. 
 	You can now access Cloud Monitor APIs using Server Access Token. 
 	No need to pass AWS Access Key and AWS Secret Key in API requests."
 
