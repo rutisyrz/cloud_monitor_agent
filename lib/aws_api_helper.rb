@@ -16,8 +16,9 @@ class AwsApiHelper
 								headers: 
 								{
 									params: {
-										server_access_token: ENV['CLOUD_MONITOR_SERVER_ACCESS_TOKEN']
-									}.merge!(@arguments)
+										server_access_token: ENV['CLOUD_MONITOR_SERVER_ACCESS_TOKEN'],
+										arguments: CGI.unescape(@arguments.to_query)
+									}
 								}
 							)
 			JSON.parse result

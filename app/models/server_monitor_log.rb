@@ -54,8 +54,7 @@ class ServerMonitorLog
         namespace_metrics.each do |metric, namespace|                    
           metric_params = send("#{metric.downcase}_api_params", app_server)
           metric_params.merge!(namespace: namespace, metric_name: metric).merge!(common_params)
-
-          metrics_stats[metric] = AwsApiHelper.new("get", "cloud_watch", "statistics", metric_params).send_request
+          metrics_stats[metric] = AwsApiHelper.new("post", "cloud_watch", "statistics", metric_params).send_request
         end
         ServerMonitorLog.create(server_monitor_log_params(app_server, metrics_stats))          
       end
@@ -63,26 +62,26 @@ class ServerMonitorLog
 
     def cpuutilization_api_params(app_server)
       {
-        dimensions: "InstanceId^#{app_server.instance_id}",
+        dimensions: [ { name: "InstanceId", value: app_server.instance_id } ],
+        # "InstanceId^#{app_server.instance_id}",
         # [ { name: "InstanceId", value: app_server.instance_id } ],
-        statistics: "Average", 
+        statistics: ["Average"], 
         unit: "Percent"
       }
     end
 
     def diskspaceutilization_api_params(app_server)
       {
-        dimensions: "InstanceId^#{app_server.instance_id}|Filesystem^#{app_server.file_system}|MountPath^#{app_server.volume_mount_path}",
-        # [ { name: "InstanceId", value: app_server.instance_id }, { name: "Filesystem", value: app_server.file_system },  {name: "MountPath", value: app_server.volume_mount_path} ], 
-        statistics: "Average", 
+        dimensions: [ { name: "InstanceId", value: app_server.instance_id }, { name: "Filesystem", value: app_server.file_system },  {name: "MountPath", value: app_server.volume_mount_path} ], 
+        statistics: ["Average"], 
         unit: "Percent"
       }
     end
 
     def diskspaceused_api_params(app_server)
       {
-        dimensions: "InstanceId^#{app_server.instance_id}|Filesystem^#{app_server.file_system}|MountPath^#{app_server.volume_mount_path}",
-        statistics: "Average",
+        dimensions: [ { name: "InstanceId", value: app_server.instance_id }, { name: "Filesystem", value: app_server.file_system },  {name: "MountPath", value: app_server.volume_mount_path} ], 
+        statistics: ["Average"],
         unit: "Gigabytes"
       }
     end
