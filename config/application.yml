@@ -1,0 +1,27 @@
+# Add configuration values here, as shown below.
+common: &common
+  AWS_ACCESS_KEY_ID: AKIAJ3BXZVPF7YBX4Q7Q
+  AWS_SECRET_ACCESS_KEY: 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
+  AWS_REGION: ap-south-1
+  CLOUD_MONITOR_APP: CloudAgent
+  CLOUD_MONITOR_SERVER_ACCESS_TOKEN: e1a53bf4ef379af94cbac57f0d2fc2a2d 
+  ## Note:: 
+  # CLOUD_MONITOR_APP and CLOUD_MONITOR_SERVER_ACCESS_TOKEN - defining as ENV variable
+  # Reason - In case user wants to have different Applications for different environments registered on Cloud Monitor Application
+
+development:
+  <<: *common
+  AWS_API_ENDPOINT: http://127.0.0.1:4000
+
+staging:
+  <<: *common
+  SECRET_KEY_BASE: 9898f70f31479a7e42ca41599b7d638240ba97e8829e3bff64c56cbee6633b3498de2bad40530bae493fef410eb25876bd8755433303bd3966baa0df0d5f737d
+  AWS_API_ENDPOINT: http://52.66.71.226
+
+test:
+  AWS_API_ENDPOINT: http://127.0.0.1:4000
+
+production:  
+  <<: *common
+  SECRET_KEY_BASE: 288cb1270c8ea714059b8060db027f16fda48eebc7c346810842382e44e9969dc06cac0cdbf6b7e62457c5ea1da9bfa9958e350352a87ad18d8a27dcc90a91f4
+  AWS_API_ENDPOINT: http://52.66.71.226
