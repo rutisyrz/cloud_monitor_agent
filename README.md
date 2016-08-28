@@ -11,17 +11,17 @@
 ## Repositories 
 
 > cloud_monitor_agent
-	- git@github.com:rutisyrz/cloud_monitor_agent.git
+- git@github.com:rutisyrz/cloud_monitor_agent.git
 
 > cloud_monitor_server
-	- git@github.com:rutisyrz/cloud_monitor_server.git
+- git@github.com:rutisyrz/cloud_monitor_server.git
 
 ## Steps to prepare the source code
 
 > Step - 1 : Configure cloud_monitor_agent app
-	- Bundle install
-	- Install and Run mongodb
-	- Replace AWS_REGION, AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in config/application.yml with your AWS account credentials
+- Bundle install
+- Install and Run mongodb
+- Replace AWS_REGION, AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in config/application.yml with your AWS account credentials
 
 > Step - 2 : Configure cloud_monitor_server app
 	- Bundle install
