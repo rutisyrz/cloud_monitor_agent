@@ -33,11 +33,13 @@ class AppServer
   private 
 
   def instance_exists
-    begin
-      instance = Aws::EC2::Instance.new(id: self.instance_id)
-      instance.exists?
-    rescue Aws::EC2::Errors::InvalidInstanceIDMalformed => e
-      errors.add(:instance_id, e.message)
+    if self.instance_id.present?
+      begin
+        instance = Aws::EC2::Instance.new(id: self.instance_id)
+        instance.exists?
+      rescue Aws::EC2::Errors::InvalidInstanceIDMalformed => e
+        errors.add(:instance_id, e.message)
+      end
     end
   end
 
