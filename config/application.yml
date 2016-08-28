@@ -1,8 +1,6 @@
 # Add configuration values here, as shown below.
 common: &common
-  AWS_ACCESS_KEY_ID: AKIAJ3BXZVPF7YBX4Q7Q
-  AWS_SECRET_ACCESS_KEY: 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
-  AWS_REGION: ap-south-1
+  
   CLOUD_MONITOR_APP: CloudAgent
   CLOUD_MONITOR_SERVER_ACCESS_TOKEN: e1a53bf4ef379af94cbac57f0d2fc2a2d 
   ## Note:: 
