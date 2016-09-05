@@ -3,7 +3,7 @@ Client app to integrate REST APIs of cloud_monitor_server
 
 ## Required Gems
 
-- [aws-sdk](https://rubygems.org/gems/aws-sdk), [mongoid](https://rubygems.org/gems/mongoid), [bson_ext](https://rubygems.org/gems/bson_ext), [figaro](https://rubygems.org/gems/figaro)
+- [aws-sdk](https://rubygems.org/gems/aws-sdk), [mongoid](https://rubygems.org/gems/mongoid), [bson_ext](https://rubygems.org/gems/bson_ext), [figaro](https://rubygems.org/gems/figaro), [rest-client](https://rubygems.org/gems/rest-client), [whenever](https://rubygems.org/gems/whenever)
 
 ## Prerequisite
 
