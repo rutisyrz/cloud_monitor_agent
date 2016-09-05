@@ -1,22 +1,14 @@
-## Technology stack
+# cloud_monitor_agent
+Client app to integrate REST APIs of cloud_monitor_server 
 
-> Rails 4.1.2
-> Ruby 2.1.2
-> MongoDB
-> Phusion Passenger
-> Nginx
-> AWS (EC2, CloudWatch, ElasticIP, AMI)
-> GitHub
+## Required Gems
+- [aws-sdk](https://rubygems.org/gems/aws-sdk), [mongoid](https://rubygems.org/gems/mongoid), [bson_ext](https://rubygems.org/gems/bson_ext), [figaro](https://rubygems.org/gems/figaro)
 
-## Repositories 
+## Prerequisite
+- This app uses REST APIs designed in my another app [cloud_monitor_server](https://github.com/rutisyrz/cloud_monitor_server)
+- Hence, configur [cloud_monitor_server](https://github.com/rutisyrz/cloud_monitor_server) as per details provided
 
-> cloud_monitor_agent
-- git@github.com:rutisyrz/cloud_monitor_agent.git
-
-> cloud_monitor_server
-- git@github.com:rutisyrz/cloud_monitor_server.git
-
-## Steps to prepare the source code
+## Setup code
 
 > Step - 1 : Configure cloud_monitor_agent app
 - Bundle install
